@@ -17,7 +17,7 @@ def load_poster_data():
 
 def load_session_posters(session):
     ls = []
-    with open(session + '.pretty') as f:
+    with open(session + '.list') as f:
         for l in f:
             ls.append(int(l))
     return ls
@@ -40,9 +40,10 @@ def generate_file(out_file_name, authors, links, titles, poster_id, select_ids):
 
 def process():
     authors, links, titles, poster_id = load_poster_data()
-    select_ids = load_session_posters('09')
-    out_file_name = '09-good.html'
-    generate_file(out_file_name, authors, links, titles, poster_id, select_ids)
+    for i in ['09', '10', '11', '12']:
+        select_ids = load_session_posters(i)
+        out_file_name = f'list-{i}.html'
+        generate_file(out_file_name, authors, links, titles, poster_id, select_ids)
 
 if __name__ == '__main__':
     process()
