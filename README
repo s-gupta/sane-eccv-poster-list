@@ -1,0 +1,4 @@
+The following generates the html files.
+```
+python script.py
+```
