@@ -39,7 +39,7 @@ def generate_file(out_file_name, authors, links, titles, poster_id, select_ids):
 
 def process():
     authors, links, titles, poster_id = load_poster_data()
-    for i in ['11']: #'09', '10', '11', '12']:
+    for i in ['09', '10', '11', '12']:
         select_ids = load_session_posters(i)
         out_file_name = f'list-{i}.html'
         generate_file(out_file_name, authors, links, titles, poster_id, select_ids)
